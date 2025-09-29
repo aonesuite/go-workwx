@@ -51,6 +51,13 @@ func (c *WebhookClient) SendMarkdownMessage(
 	return c.sendMessage("markdown", params)
 }
 
+func (c *WebhookClient) SendMarkdownMessageV2(content string) error {
+	params := map[string]any{
+		"content": content,
+	}
+	return c.sendMessage("markdown_v2", params)
+}
+
 // sendMessage 发送消息底层接口
 func (c *WebhookClient) sendMessage(
 	msgtype string,
